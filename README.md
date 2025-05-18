@@ -69,11 +69,12 @@ A collection of scripts in various programming languages for different purposes.
 - **Requirements:**  numpy, matplotlib, pandas, csv
   
 - **Usage:**
-             `python voxel2density.py voxel_file.dx`
+
+             python voxel2density.py voxel_file.dx
   
-             `python density2free_energy.py density_fractional.csv`
+             python density2free_energy.py density_fractional.csv
   
-             `python energy2energy_diff density_with_free_energy.csv -n1 x1,y1,z1 -n2 x2,y2,z2`
+             python energy2energy_diff density_with_free_energy.csv -n1 x1,y1,z1 -n2 x2,y2,z2
   
 - **Description:**
 
