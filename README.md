@@ -84,4 +84,10 @@ A collection of scripts in various programming languages for different purposes.
   
    energy2energy_diff.py - Calculates the free energy difference between any 2 given points using interpolation.
 
+### 8. `get_diff.py`
+
+  
+- **Description:**
+
+   Fits the MSD data to get diffusion coefficient between 2 given time stamps
 ---
