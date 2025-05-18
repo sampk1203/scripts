@@ -20,7 +20,7 @@ A collection of scripts in various programming languages for different purposes.
   
   Results may be inaccurate under extreme or edge-case input conditions. Use with caution.
 
-### 1. `reciprocal_eigenvec.py`
+### 2. `reciprocal_eigenvec.py`
 
 - **Requirements:**  numpy, matplotlib
   
@@ -29,5 +29,18 @@ A collection of scripts in various programming languages for different purposes.
 - **Description:**
 
    Extracts eigenvectors from the output directory of a Quantum ESPRESSO calculation, with an option to plot them. The eigenvectors are represented in reciprocal space.
+
+### 3. `DOS from file`
+    
+- **Description:**
+
+   Computes DOS for all gaussian output files in current directory using Gaussum.
+
+### 4. `Energy_HOLO_LUMO_Fermi.sh`
+
+  
+- **Description:**
+
+   Extracts SCF energy, HOMO and LUMO energies from all gaussian output files in the same directory.
 
 ---
