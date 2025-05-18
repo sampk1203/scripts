@@ -30,7 +30,7 @@ A collection of scripts in various programming languages for different purposes.
 
    Extracts eigenvectors from the output directory of a Quantum ESPRESSO calculation, with an option to plot them. The eigenvectors are represented in reciprocal space.
 
-### 3. `DOS from file`
+### 3. `DOS from file.sh`
     
 - **Description:**
 
@@ -42,5 +42,12 @@ A collection of scripts in various programming languages for different purposes.
 - **Description:**
 
    Extracts SCF energy, HOMO and LUMO energies from all gaussian output files in the same directory.
+
+### 2. `cif2lmpdat.py`
+
+  
+- **Description:**
+
+   Uses `ase` to convert cif files to lmpdat files for usage in LAMMPS
 
 ---
