@@ -59,7 +59,9 @@ A collection of scripts in various programming languages for different purposes.
 - **Description:**
 
    Extracts the DOS at a given value of energy.
+  
    The first argument is a text file with the DOS filenames(extracted using Gausssum)
+  
    The second argument is a text file with the corresponding values of energies where the DOS is to be found.
 
 ---
