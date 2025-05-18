@@ -64,4 +64,20 @@ A collection of scripts in various programming languages for different purposes.
   
    The second argument is a text file with the corresponding values of energies where the DOS is to be found.
 
+### 7. `voxel2density.py`&`density2free_energy.py`&`energy2energy_diff.py`
+
+- **Requirements:**  numpy, matplotlib, pandas, csv
+  
+- **Usage:** `python voxel2density.py voxel_file.dx`
+             `python density2free_energy.py density_fractional.csv`
+             `python energy2energy_diff density_with_free_energy.csv -n1 x1,y1,z1 -n2 x2,y2,z2`
+  
+- **Description:**
+
+   voxel2density.py - Converts a voxel file from VMD to a csv file with fractional coordinates of the cell with atom density.
+  
+   density2free_energy.py - Estimates the free energy at each point in the grid.
+  
+   energy2energy_diff.py - Calculates the free energy difference between any 2 given points using interpolation.
+
 ---
