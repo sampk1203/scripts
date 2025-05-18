@@ -27,7 +27,7 @@ A collection of scripts in various programming languages for different purposes.
 - **Usage:** `python reciprocal_eigenvec.py input_directory nscf_output_file`
   
 - **Description:**
-  
- Extracts eigenvectors from the output directory of a Quantum ESPRESSO calculation, with an option to plot them. The eigenvectors are represented in reciprocal space.
+
+   Extracts eigenvectors from the output directory of a Quantum ESPRESSO calculation, with an option to plot them. The eigenvectors are represented in reciprocal space.
 
 ---
