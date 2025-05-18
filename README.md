@@ -43,11 +43,23 @@ A collection of scripts in various programming languages for different purposes.
 
    Extracts SCF energy, HOMO and LUMO energies from all gaussian output files in the same directory.
 
-### 2. `cif2lmpdat.py`
+### 5. `cif2lmpdat.py`
 
   
 - **Description:**
 
    Uses `ase` to convert cif files to lmpdat files for usage in LAMMPS
+
+### 6. `DOS@energy.py`
+
+- **Requirements:**  numpy, matplotlib
+  
+- **Usage:** `python DOS@energy.py <arg1> <arg2>`
+  
+- **Description:**
+
+   Extracts the DOS at a given value of energy.
+   The first argument is a text file with the DOS filenames(extracted using Gausssum)
+   The second argument is a text file with the corresponding values of energies where the DOS is to be found.
 
 ---
