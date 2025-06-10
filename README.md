@@ -90,4 +90,27 @@ A collection of scripts in various programming languages for different purposes.
 - **Description:**
 
    Fits the MSD data to get diffusion coefficient between 2 given time stamps
----
+### 9. `match_position_to_wyckoff.py`
+
+- **Requirements:** numpy, pandas, matplotlib, scipy, pymatgen
+  
+- **Usage:** `python match_position_to_wyckoff.py csv_file xyz_dir (--window/--tol/--show-raw/--raw-only)`
+  
+- **Description:**
+  
+  Matches the position of all xyz trajectory files from a given input directory to the respective positional free energies, plots them.Smoothing window (--window),tolerance for matching (--tol),and type of plot(--show-raw / --raw-only) can be specified.
+  
+- **Note:**
+  
+  Specify the space group and the initial starting positions to generate all wyckoff positions.
+
+### 10. `pathtrace.tcl`
+
+- **Requirements:** VMD
+  
+- **Usage:** `use in tkconsole`
+  
+- **Description:**
+  
+  Writes the xyz file for every frame of the trajectory in the given file, for the given type of atom. Cell parameters and atom type need to be specified in the code before use.
+  
