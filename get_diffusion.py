@@ -9,16 +9,12 @@ def main():
         sys.exit(1)
 
     filename = sys.argv[1]
-
-    # Load data, skip first line
     data = np.loadtxt(filename, skiprows=1)
-    x = data[:, 0]
-    y = data[:, 1]
+    x = data[:, 1]
+    y = data[:, 2]
 
-    # Plot full data
     plt.plot(x, y, label='Full data', color='gray', alpha=0.6)
 
-    # Ask for x-limits
     try:
         x_start = float(input("Enter start of x-range for fitting: "))
         x_end = float(input("Enter end of x-range for fitting: "))
@@ -26,7 +22,6 @@ def main():
         print("Invalid input. Please enter numeric values.")
         sys.exit(1)
 
-    # Filter data within the selected range
     mask = (x >= x_start) & (x <= x_end)
     x_fit = x[mask]
     y_fit = y[mask]
@@ -35,21 +30,18 @@ def main():
         print("Not enough points in selected range for fitting.")
         sys.exit(1)
 
-    # Perform linear fit
     slope, intercept, r_value, p_value, std_err = linregress(x_fit, y_fit)
-    Diff=slope/60000
+    Diff = slope / 60000
 
-    # Plot fitted line
     y_line = slope * x_fit + intercept
     plt.plot(x_fit, y_line, 'r--', label=f'Fit: y = {slope:.4f}x + {intercept:.4f}')
-    plt.xlabel("X")
-    plt.ylabel("Y")
+    plt.xlabel("Column 2 (X)")
+    plt.ylabel("Column 3 (Y)")
     plt.legend()
     plt.title("Linear Fit to Selected Range")
     plt.grid(True)
     plt.show()
 
-    # Print slope
     print(f"Slope of fitted line: {slope:.6f} (units of y/x)")
     print(f"Diffusivity Coefficient: {Diff:.3e} (units of cm^2/sec)")
 
