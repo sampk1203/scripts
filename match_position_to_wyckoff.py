@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument("csv_file", type=str, help="CSV file with fractional grid and free energy.")
 parser.add_argument("xyz_dir", type=str, help="Directory with Li*_atom*.xyz files.")
 parser.add_argument("--window", type=int, default=25, help="Smoothing window (default: 25)")
-parser.add_argument("--tol", type=float, default=5e-2, help="Wyckoff matching tolerance (default: 0.05)")
+parser.add_argument("--tol", type=float, default=3e-2, help="Wyckoff matching tolerance (default: 0.05)")
 parser.add_argument("--show-raw", action="store_true", help="Show raw energy points (scatter)")
 parser.add_argument("--raw-only", action="store_true", help="Plot only raw energy points without smoothing curve")
 args = parser.parse_args()
