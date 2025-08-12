@@ -67,6 +67,17 @@ def plot_msd_ngp(file_path):
     plt.legend()
     plt.tight_layout()
     plt.show()
+    
+    # Plot MSD in log scale
+    plt.figure(figsize=(8, 5))
+    plt.loglog(time, msd, label='MSD', color='blue') 
+    plt.xlabel('Time')
+    plt.ylabel('Mean Squared Displacement (MSD)')
+    plt.title('MSD vs Time (Logarithmic scale)')
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
 
     # Plot NGP
     plt.figure(figsize=(8, 5))
