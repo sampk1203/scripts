@@ -3,13 +3,31 @@ import os
 import re
 
 def sanitize_filename(text):
-    text = re.sub(r'[\\/*?:"<>|]', '', text)
+    # Normalize whitespace
     text = re.sub(r'\s+', ' ', text).strip()
-    return text[:180]
+
+    # Convert to lowercase
+    text = text.lower()
+
+    # Replace spaces with underscores
+    text = text.replace(" ", "_")
+
+    # Remove unsafe characters (keep only a-z, 0-9, _, -)
+    text = re.sub(r'[^a-z0-9_-]', '', text)
+
+    # Collapse multiple underscores
+    text = re.sub(r'_+', '_', text)
+
+    # Trim leading/trailing underscores
+    text = text.strip('_')
+
+    return text[:150] if text else "untitled"
+
 
 def extract_year(text):
     years = re.findall(r'\b(19\d{2}|20\d{2})\b', text)
     return years[0] if years else None
+
 
 def looks_like_id(title):
     if not title:
@@ -22,6 +40,7 @@ def looks_like_id(title):
     if title.count(" ") < 2:
         return True
     return False
+
 
 def extract_title_from_text(text):
     lines = [
@@ -43,6 +62,7 @@ def extract_title_from_text(text):
 
     return " ".join(title_lines)
 
+
 def get_title_and_year(pdf_path):
     doc = fitz.open(pdf_path)
     metadata = doc.metadata
@@ -50,6 +70,7 @@ def get_title_and_year(pdf_path):
     meta_title = metadata.get("title", "")
     year = None
 
+    # Extract year from metadata
     if metadata.get("creationDate"):
         match = re.search(r'(19\d{2}|20\d{2})', metadata["creationDate"])
         if match:
@@ -64,10 +85,25 @@ def get_title_and_year(pdf_path):
     else:
         title = meta_title
 
+    # Fallback year from content
     if not year:
         year = extract_year(first_page_text)
 
-    return sanitize_filename(title), year or "UnknownYear"
+    return sanitize_filename(title), year or "unknownyear"
+
+
+def get_unique_filename(base_name):
+    """Avoid overwriting existing files"""
+    name, ext = os.path.splitext(base_name)
+    counter = 1
+
+    new_name = base_name
+    while os.path.exists(new_name):
+        new_name = f"{name}_{counter}{ext}"
+        counter += 1
+
+    return new_name
+
 
 def main():
     for filename in os.listdir("."):
@@ -77,6 +113,10 @@ def main():
         try:
             title, year = get_title_and_year(filename)
             new_name = f"{year}_{title}.pdf"
+            new_name = sanitize_filename(new_name.replace(".pdf", "")) + ".pdf"
+
+            # Ensure uniqueness
+            new_name = get_unique_filename(new_name)
 
             if filename != new_name:
                 os.rename(filename, new_name)
@@ -84,6 +124,7 @@ def main():
 
         except Exception as e:
             print(f"Failed on {filename}: {e}")
+
 
 if __name__ == "__main__":
     main()
